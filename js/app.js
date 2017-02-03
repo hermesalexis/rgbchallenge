@@ -5,7 +5,12 @@ game();
 
 //enlaza el click de los circulos a la funcion guess
 $('.option').on('click',guess);
-
+$('.close a').on('click', function(){
+  $('.result').hide();
+  $('.option').removeClass('scale');
+  
+  game();
+});
 
 function game(){
 	correct = Math.floor(Math.random() * 2); 
@@ -20,18 +25,18 @@ function game(){
 }
 
 function guess(){
+	$(this).addClass('scale');
     var index = $('.option').index(this)
     if(index == correct){
-  	  alert("Muy bien!!!!!!!!");
-  	 var score =  $('.score').find('span').text();
-  	 $('.score').find('span').text(+score + 1);
+      $('.result.won').show();
+  	  var score =  $('.score').find('span').text();
+  	  $('.score').find('span').text(+score + 1);
 
     }else{
-  	  alert(("No que malll"));
+  	  $('.result.lost').show();
   	  $('.score').find('span').text(0);
 
    }
-   game();
 }
 
 
