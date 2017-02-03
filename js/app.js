@@ -1,5 +1,14 @@
 var correct = Math.floor(Math.random() * 2); 
 
+$('.option').on('click',function(){
+  var index = $('.option').index(this)
+  if(index == correct){
+  	alert("Muy bien!!!!!!!!");
+  }else{
+  	alert(("No que malll"));
+  }
+});
+
 $('.option').each(function(index){
   var color = generateColor();
   $(this).css('background-color', color);
@@ -7,6 +16,8 @@ $('.option').each(function(index){
   	$('.question').text(color);
   }
 });
+
+
 
 
 
